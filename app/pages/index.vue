@@ -128,7 +128,7 @@ useHead({
 
             <!-- Content -->
             <div class="flex flex-col gap-3 text-center z-10 relative mt-auto md:mt-0 md:order-1 md:text-left md:items-start md:justify-center"><h1 class="text-white md:text-slate-900 md:dark:text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl drop-shadow-md md:drop-shadow-none md:text-5xl lg:text-6xl">
-                <div><span class="text-[50px] md:text-[60px] tracking-[-1.5px] md:tracking-tight">Mięciutkie szydełkowani</span></div>
+                <div><span class="text-[50px] md:text-[60px] tracking-[-1.5px] md:tracking-tight">Mięciutkie szydełkowanie</span></div>
               </h1>
               <p class="text-primary md:text-leather/80 text-lg font-semibold @[480px]:text-2xl drop-shadow-sm md:drop-shadow-none">~by @Becia</p>
             </div>
