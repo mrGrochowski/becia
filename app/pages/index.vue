@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const { data: statusData } = await useAsyncData('status', () => queryCollection('status').first())
 
@@ -33,6 +33,25 @@ const submitForm = async () => {
     pending.value = false
   }
 }
+
+
+const showBottomNav = ref(false)
+
+const handleScroll = () => {
+  if (window.scrollY > 400) {
+    showBottomNav.value = true
+  } else {
+    showBottomNav.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 // SEO
 useHead({
@@ -74,7 +93,7 @@ useHead({
 
         <h2 class="text-leather dark:text-primary text-lg font-bold leading-tight tracking-tight flex-1 text-center">Mięciutkie szydełkowanie</h2>
 
-        <div class="flex w-12 items-center justify-end md:hidden">
+        <div class="flex w-12 items-center justify-end ">
           <button class="flex items-center justify-center rounded-full h-10 w-10 bg-primary/10 text-leather">
             <span class="material-symbols-outlined">share</span>
           </button>
@@ -104,31 +123,33 @@ useHead({
                 alt="Close up of soft colorful handmade crochet plush toys"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-black/20 md:hidden"></div>
+              <div class="absolute inset-0 bg-black/20 "></div>
             </div>
 
             <!-- Content -->
-            <div class="flex flex-col gap-3 text-center z-10 relative md:order-1 md:text-left md:items-start md:justify-center">
-              <span class="text-white md:text-leather text-xs md:text-sm font-bold tracking-widest drop-shadow-md md:drop-shadow-none uppercase">PASJA DO RĘKODZIEŁA</span>
-              <h1 class="text-white md:text-slate-900 md:dark:text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl drop-shadow-md md:drop-shadow-none md:text-5xl lg:text-6xl">
+            <div class="flex flex-col gap-3 text-center z-10 relative mt-auto md:mt-0 md:order-1 md:text-left md:items-start md:justify-center"><h1 class="text-white md:text-slate-900 md:dark:text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl drop-shadow-md md:drop-shadow-none md:text-5xl lg:text-6xl">
                 <div><span class="text-[50px] md:text-[60px] tracking-[-1.5px] md:tracking-tight">Mięciutkie szydełkowani</span></div>
               </h1>
               <p class="text-primary md:text-leather/80 text-lg font-semibold @[480px]:text-2xl drop-shadow-sm md:drop-shadow-none">~by @Becia</p>
-
-              <p class="text-white/90 md:text-slate-600 md:dark:text-slate-300 text-sm md:text-base mt-2 drop-shadow-sm md:drop-shadow-none max-w-md mx-auto md:mx-0">
-                Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
-              </p>
-
-              <a href="#gallery" class="leather-patch flex min-w-[160px] w-max mx-auto md:mx-0 cursor-pointer items-center justify-center rounded-lg h-12 px-6 mt-4 text-white text-base font-bold shadow-lg transform active:scale-95 transition-transform relative z-10">
-                <span class="truncate">Zobacz moje prace</span>
-              </a>
             </div>
 
           </div>
         </div>
       </section>
 
-      <!-- Status -->
+
+      <!-- Hero Descriptions -->
+      <section class="p-6 md:max-w-7xl md:mx-auto md:w-full flex flex-col items-center text-center">
+        <span class="text-leather text-xs md:text-sm font-bold tracking-widest uppercase mb-2">PASJA DO RĘKODZIEŁA</span>
+        <p class="text-slate-600 dark:text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-6">
+          Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
+        </p>
+
+              <a href="#gallery" class="leather-patch flex min-w-[160px] w-max mx-auto cursor-pointer items-center justify-center rounded-lg h-12 px-8 text-white text-base font-bold shadow-lg transform active:scale-95 transition-transform mb-4">
+          <span class="truncate">Zobacz moje prace</span>
+        </a>
+      </section>
+<!-- Status -->
       <section class="p-4 @container md:max-w-7xl md:mx-auto md:w-full">
         <div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border-2 border-dashed border-leather/40 bg-white dark:bg-slate-800 p-6 shadow-sm @[480px]:flex-row @[480px]:items-center md:px-10 md:py-8">
           <div class="flex items-center gap-4">
@@ -265,7 +286,7 @@ useHead({
       </section>
     </main>
 
-    <footer class="p-8 text-center bg-background-light dark:bg-background-dark">
+    <footer class="p-8 pb-24 text-center bg-background-light dark:bg-background-dark">
       <div class="flex justify-center gap-6 mb-6">
         <a href="#" class="text-leather dark:text-primary"><span class="material-symbols-outlined text-3xl">photo_camera</span></a>
         <a href="#" class="text-leather dark:text-primary"><span class="material-symbols-outlined text-3xl">chat_bubble</span></a>
@@ -278,5 +299,27 @@ useHead({
         <span>przez Becię</span>
       </div>
     </footer>
+
+    <!-- Sticky Bottom Navigation (Mobile & Desktop, shown after scrolling) -->
+    <div
+      class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-leather/20 z-50 transition-transform duration-300 "
+      :class="showBottomNav ? 'translate-y-0' : 'translate-y-full'"
+    >
+      <div class="flex justify-around items-center p-3 max-w-7xl mx-auto">
+        <a href="#hero" class="flex flex-col items-center gap-1 text-leather dark:text-primary hover:text-leather/80 transition-colors">
+          <span class="material-symbols-outlined text-2xl">home</span>
+          <span class="text-[10px] font-bold">Start</span>
+        </a>
+        <a href="#gallery" class="flex flex-col items-center gap-1 text-leather dark:text-primary hover:text-leather/80 transition-colors">
+          <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+          <span class="text-[10px] font-bold">Galeria</span>
+        </a>
+        <a href="#contact" class="flex flex-col items-center gap-1 text-leather dark:text-primary hover:text-leather/80 transition-colors">
+          <span class="material-symbols-outlined text-2xl">edit_note</span>
+          <span class="text-[10px] font-bold">Kontakt</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </template>
