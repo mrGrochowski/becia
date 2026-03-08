@@ -213,7 +213,7 @@ useHead({
           </div>
 
           <form @submit.prevent="submitForm" class="space-y-4 bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border-2 border-leather/10 relative">
-            <div class="absolute -top-3 -right-3 leather-patch h-10 w-24 rounded flex items-center justify-center text-xs text-white font-bold rotate-12">
+            <div class="!absolute -top-3 -right-3 leather-patch h-10 w-24 rounded flex items-center justify-center text-xs text-white font-bold rotate-12">
               HANDMADE
             </div>
 
