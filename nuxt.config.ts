@@ -7,8 +7,17 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxt/icon'
   ],
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './app/assets/icons'
+      }
+    ]
+  },
   content: {
     preview: {
       api: 'https://api.nuxt.studio',
