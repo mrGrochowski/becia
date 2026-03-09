@@ -7,21 +7,17 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
-    '@nuxt/image'
+    '@nuxt/image',
+    'nuxt-studio'
   ],
-  content: {
-    preview: {
-      api: 'https://api.nuxt.studio',
-      gitInfo: {
-        name: 'becia',
-        owner: 'mrGrochowski',
-        url: 'https://github.com/mrGrochowski/becia'
-      }
-    }
-  },
   studio: {
     enabled: true,
-    repository: 'mrGrochowski/becia'
+    repository: {
+      provider: 'github',
+      owner: 'mrGrochowski',
+      repo: 'becia',
+      branch: 'main'
+    }
   },
   css: [
     '~/assets/css/main.css'
