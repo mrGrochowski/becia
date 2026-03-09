@@ -11,8 +11,17 @@ export default defineNuxtConfig({
   ],
   content: {
     preview: {
-      api: 'https://api.nuxt.studio'
+      api: 'https://api.nuxt.studio',
+      gitInfo: {
+        name: 'becia',
+        owner: 'mrGrochowski',
+        url: 'https://github.com/mrGrochowski/becia'
+      }
     }
+  },
+  studio: {
+    enabled: true,
+    repository: 'mrGrochowski/becia'
   },
   css: [
     '~/assets/css/main.css'
