@@ -110,13 +110,15 @@ useHead({
     </header>
 
     <main>
-      <!-- Hero -->
-      <section id="hero" class="@container md:max-w-7xl md:mx-auto">
-        <div class="@[480px]:p-4">
-          <div class="flex min-h-[500px] flex-col justify-end gap-6 bg-cover bg-center bg-no-repeat @[480px]:rounded-xl p-6 relative overflow-hidden group md:grid md:grid-cols-2 md:items-center md:gap-12 md:bg-transparent md:min-h-0 md:justify-center">
+      <!-- Hero and Descriptions Wrapper -->
+      <section id="hero" class="@container md:max-w-7xl md:mx-auto md:w-full md:grid md:grid-cols-2 md:gap-x-12 md:py-12 md:items-center">
+
+        <!-- Mobile Hero Container (Becomes display:contents on desktop) -->
+        <div class="@[480px]:p-4 md:contents">
+          <div class="flex min-h-[500px] flex-col justify-end gap-6 bg-cover bg-center bg-no-repeat @[480px]:rounded-xl p-6 relative overflow-hidden group md:contents">
 
             <!-- Background Image for mobile/tablet, Column Image for Desktop -->
-            <div class="absolute inset-0 md:relative md:order-2 md:h-[600px] md:rounded-2xl md:overflow-hidden md:shadow-xl">
+            <div class="absolute inset-0 md:relative md:col-start-2 md:row-start-1 md:row-span-2 md:h-[600px] md:rounded-2xl md:overflow-hidden md:shadow-xl md:w-full">
               <NuxtImg
                 src="https://i.postimg.cc/MHxft4y4/becia.jpg"
                 class="w-full h-full object-cover md:absolute md:inset-0"
@@ -126,8 +128,9 @@ useHead({
               <div class="absolute inset-0 bg-black/20 "></div>
             </div>
 
-            <!-- Content -->
-            <div class="flex flex-col gap-3 text-center z-10 relative mt-auto md:mt-0 md:order-1 md:text-left md:items-start md:justify-center"><h1 class="text-white md:text-slate-900 md:dark:text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl drop-shadow-md md:drop-shadow-none md:text-5xl lg:text-6xl">
+            <!-- Content Title -->
+            <div class="flex flex-col gap-3 text-center z-10 relative mt-auto md:mt-0 md:col-start-1 md:row-start-1 md:text-left md:items-start md:self-end md:pb-6">
+              <h1 class="text-white md:text-slate-900 md:dark:text-white text-4xl font-black leading-tight tracking-tight @[480px]:text-6xl drop-shadow-md md:drop-shadow-none md:text-5xl lg:text-6xl">
                 <div><span class="text-[50px] md:text-[60px] tracking-[-1.5px] md:tracking-tight">Mięciutkie szydełkowanie</span></div>
               </h1>
               <p class="text-primary md:text-leather/80 text-lg font-semibold @[480px]:text-2xl drop-shadow-sm md:drop-shadow-none">~by @Becia</p>
@@ -135,19 +138,18 @@ useHead({
 
           </div>
         </div>
-      </section>
 
+        <!-- Hero Descriptions (Mobile flows naturally below, Desktop placed in Col 1 Row 2) -->
+        <div class="p-6 flex flex-col items-center text-center md:col-start-1 md:row-start-2 md:text-left md:items-start md:p-0 md:pt-0">
+          <span class="text-leather text-xs md:text-sm font-bold tracking-widest uppercase mb-2">PASJA DO RĘKODZIEŁA</span>
+          <p class="text-slate-600 dark:text-slate-300 text-base md:text-lg max-w-2xl mx-auto md:mx-0 mb-6 md:max-w-none">
+            Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
+          </p>
 
-      <!-- Hero Descriptions -->
-      <section class="p-6 md:max-w-7xl md:mx-auto md:w-full flex flex-col items-center text-center">
-        <span class="text-leather text-xs md:text-sm font-bold tracking-widest uppercase mb-2">PASJA DO RĘKODZIEŁA</span>
-        <p class="text-slate-600 dark:text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-6">
-          Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
-        </p>
-
-              <a href="#gallery" class="leather-patch flex min-w-[160px] w-max mx-auto cursor-pointer items-center justify-center rounded-lg h-12 px-8 text-white text-base font-bold shadow-lg transform active:scale-95 transition-transform mb-4">
-          <span class="truncate">Zobacz moje prace</span>
-        </a>
+          <a href="#gallery" class="leather-patch flex min-w-[160px] w-max mx-auto md:mx-0 cursor-pointer items-center justify-center rounded-lg h-12 px-8 text-white text-base font-bold shadow-lg transform active:scale-95 transition-transform mb-4">
+            <span class="truncate">Zobacz moje prace</span>
+          </a>
+        </div>
       </section>
 <!-- Status -->
       <section class="p-4 @container md:max-w-7xl md:mx-auto md:w-full">
