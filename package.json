@@ -12,6 +12,7 @@
   "dependencies": {
     "nuxt": "latest",
     "nuxt-studio": "^1.4.0",
+    "svg-path-bbox": "^2.1.0",
     "vue": "latest",
     "vue-router": "latest"
   },
