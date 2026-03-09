@@ -85,13 +85,13 @@ useHead({
   <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
     <header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-center sticky top-0 z-50 border-b border-primary/20">
       <div class="flex items-center justify-between w-full max-w-7xl">
-        <div class="flex size-12 shrink-0 items-center justify-center">
+        <div class="flex size-24 shrink-0 items-center justify-center">
           <NuxtImg
             src="/logo.png"
             alt="Logo"
             class="w-full h-full object-contain"
-            width="48"
-            height="48"
+            width="96"
+            height="96"
           />
         </div>
 
