@@ -74,5 +74,11 @@ export default defineNuxtConfig({
       smtpTo: process.env.SMTP_TO || ''
     }
   },
+  routeRules: {
+    '/': { prerender: true }
+  },
+  nitro: {
+    preset: 'vercel'
+  },
   devtools: { enabled: true }
 })
