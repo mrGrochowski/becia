@@ -7,10 +7,11 @@ description: Mięciutkie szydełkowanie - ręcznie robione z miłością. Plusza
 ---
 alt: Pani Beata Witczak
 image: https://i.postimg.cc/MHxft4y4/becia.jpg
-subtitle: ~by @Becia
-title: Mięciutkie szydełkowanie
-text: Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
 linkText: Zobacz moje prace
+subtitle: ~by Becia
+text: Odkryj świat ręcznie robionych, przytulnych maskotek. Każdy splot to
+  kawałek serca włożony w to, by wywołać uśmiech na Twojej twarzy.
+title: Mięciutkie szydełkowanie
 ---
 ::
 
@@ -27,10 +28,10 @@ title: PASJA DO RĘKODZIEŁA
 ---
 isOnline: "true"
 link: Skontaktuj się
-textOnline: Becia teraz pracuje (Online)
-textOnlineDesc: Aktualnie przyjmuję nowe zamówienia na wymarzone maskotki.
 textOffline: Becia teraz odpoczywa (Offline)
 textOfflineDesc: Wracam niebawem z nową energią do szydełkowania.
+textOnline: Becia teraz pracuje (Online)
+textOnlineDesc: Aktualnie przyjmuję nowe zamówienia na wymarzone maskotki.
 ---
 ::
 
