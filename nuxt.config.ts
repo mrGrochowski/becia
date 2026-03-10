@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     enabled: true,
     repository: {
       provider: 'github',
-      owner: 'mrGrochowski',
+      owner: 'grochowski_it',
       repo: 'becia',
       branch: 'main'
     }
@@ -73,6 +73,12 @@ export default defineNuxtConfig({
       smtpFrom: process.env.SMTP_FROM || '',
       smtpTo: process.env.SMTP_TO || ''
     }
+  },
+  routeRules: {
+    '/': { prerender: true }
+  },
+  nitro: {
+    preset: 'vercel'
   },
   devtools: { enabled: true }
 })
