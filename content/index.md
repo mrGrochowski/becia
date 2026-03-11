@@ -26,7 +26,7 @@ title: PASJA DO RĘKODZIEŁA
 
 ::status
 ---
-isOnline: "true"
+isOnline: "false"
 link: Skontaktuj się
 textOffline: Becia teraz odpoczywa (Offline)
 textOfflineDesc: Wracam niebawem z nową energią do szydełkowania.
