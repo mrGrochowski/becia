@@ -91,9 +91,17 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/': { prerender: true },
+    // Globalne nagłówki dla całej aplikacji (odcinają dostęp z innych domen)
+    '/**': {
+      headers: {
+        'X-Frame-Options': 'SAMEORIGIN',
+        'Content-Security-Policy': "frame-ancestors 'self';"
+      },
+      prerender: true,
+    },
     '/sitemap.xml': { prerender: true },
-    '/robots.txt': { prerender: true }
+    '/robots.txt': { prerender: true },
+
   },
   nitro: {
     preset: 'vercel'
