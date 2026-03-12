@@ -99,6 +99,7 @@ export default defineNuxtConfig({
       },
       prerender: true,
     },
+    '/': { prerender: true },
     '/sitemap.xml': { prerender: true },
     '/robots.txt': { prerender: true },
 
