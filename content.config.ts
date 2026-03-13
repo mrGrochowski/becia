@@ -15,7 +15,8 @@ export default defineContentConfig({
           alt: z.string(),
           title: z.string(),
           description: z.string(),
-          blogLink: z.string().optional()
+          blogLink: z.string().optional(),
+          objectPosition: z.string().optional()
         }))
       })
     }),
@@ -27,7 +28,8 @@ export default defineContentConfig({
         description: z.string(),
         date: z.string(),
         image: z.string().optional(),
-        alt: z.string().optional()
+        alt: z.string().optional(),
+        objectPosition: z.string().optional()
       })
     })
   }

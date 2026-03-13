@@ -4,6 +4,7 @@ description: Kulisy powstawania wyjątkowej, ręcznie robionej maskotki tygryska
 date: "2024-03-13T10:00:00.000Z"
 image: /tiger.png
 alt: Pluszowy tygrysek zrobiony na szydełku
+objectPosition: object-top
 ---
 
 # Jak powstawała maskotka tygryska

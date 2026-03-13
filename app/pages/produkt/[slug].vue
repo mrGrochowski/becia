@@ -147,6 +147,7 @@ const orderSimilar = () => {
               :src="product.src"
               :alt="product.alt"
               class="absolute inset-0 w-full h-full object-cover"
+              :class="product.objectPosition || 'object-center'"
               loading="lazy"
             />
           </div>
