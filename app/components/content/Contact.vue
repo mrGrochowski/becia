@@ -21,7 +21,8 @@ defineProps<{
 const form = ref({
   name: '',
   email: '',
-  message: ''
+  message: '',
+  turnstileToken: ''
 })
 const pending = ref(false)
 const successMsg = ref('')
@@ -47,6 +48,12 @@ const submitForm = async () => {
   errorMsg.value = ''
 
   try {
+    if (!form.value.turnstileToken) {
+      errorMsg.value = 'Proszę zaznaczyć, że nie jesteś robotem.'
+      pending.value = false
+      return
+    }
+
     const response = await $fetch('/api/contact', {
       method: 'POST',
       body: form.value
@@ -56,6 +63,7 @@ const submitForm = async () => {
     form.value.name = ''
     form.value.email = ''
     form.value.message = ''
+    form.value.turnstileToken = ''
     orderStore.clearOrderMessage()
   } catch (error: any) {
     errorMsg.value = error.data?.statusMessage || 'Wystąpił błąd. Spróbuj ponownie później.'
@@ -96,6 +104,11 @@ const submitForm = async () => {
         <div>
           <label class="block text-sm font-bold text-leather mb-1">{{ messageLabel }}</label>
           <textarea v-model="form.message" required rows="4" class="w-full rounded-lg border-primary/30 focus:border-leather focus:ring-leather bg-background-light dark:bg-slate-700" :placeholder="messagePlaceholder"></textarea>
+        </div>
+
+        <!-- Cloudflare Turnstile -->
+        <div class="flex justify-center my-4">
+          <NuxtTurnstile v-model="form.turnstileToken" />
         </div>
 
         <!-- Messages -->

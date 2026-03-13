@@ -10,6 +10,21 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  if (!body.turnstileToken) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Brak weryfikacji anty-botowej. Zaznacz, że nie jesteś robotem.'
+    })
+  }
+
+  const turnstileResult = await verifyTurnstileToken(body.turnstileToken, event)
+  if (!turnstileResult.success) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Weryfikacja anty-botowa nie powiodła się.'
+    })
+  }
+
   // Odczyt ustawień SMTP ze środowiska
   const config = useRuntimeConfig()
   const { smtpHost, smtpPort, smtpUser, smtpPass, smtpFrom, smtpTo } = config.smtp || {}

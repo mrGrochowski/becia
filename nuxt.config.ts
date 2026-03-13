@@ -11,8 +11,12 @@ export default defineNuxtConfig({
     'nuxt-studio',
     '@nuxt/icon',
     '@nuxtjs/seo',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    '@nuxtjs/turnstile'
   ],
+  turnstile: {
+    siteKey: process.env.NUXT_TURNSTILE_SITE_KEY || '1x00000000000000000000AA', // domyślny klucz testowy (zawsze przechodzi) jeśli brak env
+  },
   site: {
     url: 'https://becia.pl',
     name: 'Mięciutkie szydełkowanie by Becia',
