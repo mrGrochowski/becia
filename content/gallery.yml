@@ -11,3 +11,8 @@ images:
     alt: Cute amigurumi doll with pink dress
     title: Lalka Amigurumi
     description: Dla Twojej pociechy
+  - src: /tiger.png
+    alt: Szydełkowy pluszowy tygrysek
+    title: Pluszowy Tygrysek
+    description: Przytulny, ręcznie robiony tygrysek
+    blogLink: /blog/jak-powstawal-tygrysek
