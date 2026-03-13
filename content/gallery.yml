@@ -22,5 +22,5 @@ images:
     title: Pluszowy Tygrysek
     description: Przytulny, ręcznie robiony tygrysek
     blogLink: /blog/jak-powstawal-tygrysek
-    imagePositionX: 50%
-    imagePositionY: 0%
+    imagePositionX: 0%
+    imagePositionY: 30%
