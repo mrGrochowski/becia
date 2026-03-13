@@ -11,4 +11,4 @@ objectPosition: object-top
 
 []Becia coś napisze
 
-e i inne maskotki możecie zobaczyć w internecie dzięki <https://grochowski.it>.
+Te i inne maskotki możecie zobaczyć w internecie dzięki <https://grochowski.it>.
