@@ -19,9 +19,10 @@ export default defineEventHandler(async (event) => {
 
   const turnstileResult = await verifyTurnstileToken(body.turnstileToken, event)
   if (!turnstileResult.success) {
+    console.error('Szczegóły błędu Turnstile (od Cloudflare):', turnstileResult)
     throw createError({
       statusCode: 400,
-      statusMessage: 'Weryfikacja anty-botowa nie powiodła się.'
+      statusMessage: `Weryfikacja anty-botowa nie powiodła się. Sprawdź logi serwera Vercel.`
     })
   }
 
