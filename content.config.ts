@@ -14,8 +14,24 @@ export default defineContentConfig({
           src: z.string(),
           alt: z.string(),
           title: z.string(),
-          description: z.string()
+          description: z.string(),
+          blogLink: z.string().optional(),
+          imagePositionX: z.string().optional(),
+          imagePositionY: z.string().optional()
         }))
+      })
+    }),
+    blog: defineCollection({
+      type: 'page',
+      source: 'blog/*.md',
+      schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        date: z.string(),
+        image: z.string().optional(),
+        alt: z.string().optional(),
+        imagePositionX: z.string().optional(),
+        imagePositionY: z.string().optional()
       })
     })
   }
